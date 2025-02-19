@@ -25,8 +25,8 @@ Gaccuracy = accuracy_score(y_test, Gpredictions)
 print("GaussianNB Accuracy:", Gaccuracy)
 
 #Mutlinomial Model
-train_img_flat = train_img_flat(x_train>128).astype(int)
-test_img_flat = test_img_flat(x_test>128).astype(int)
+train_img_flat = (train_img_flat>128).astype(int)
+test_img_flat = (test_img_flat>128).astype(int)
 Mmodel = MultinomialNB()
 
 Mmodel.fit(train_img_flat, y_train)
@@ -35,4 +35,4 @@ Mpredictions = Mmodel.predict(test_img_flat)
 
 Maccuracy = accuracy_score(y_test,Mpredictions)
 print("Multinomial Accuracy:", Maccuracy)
-print("Unique values in x_train:", np.unique(x_train))
+
